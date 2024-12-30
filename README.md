@@ -1,4 +1,9 @@
 
+
+
+"I have used React and Tailwind CSS for the development of this project."
+
+
 1. Clone the repository:
    
    git clone https://github.com/Shaikhhina/Task-Management-frontend.git

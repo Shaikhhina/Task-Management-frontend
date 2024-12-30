@@ -67,14 +67,18 @@ function InputData({ close, setClose, updatedData, setUpdatedData }) {
 
   return (
     <>
+      {/* Overlay */}
       <div
-        className={`${close} top-0 left-0 bg-gray-700 opacity-80 h-screen w-full`}
+        className={`${close} fixed top-0 left-0 bg-gray-700 opacity-80 h-screen w-full`}
       ></div>
+
+      {/* Modal */}
       <div
-        className={`${close} top-0 left-0 bg-gray-700 flex items-center justify-center h-screen w-full text-white `}
+        className={`${close} fixed top-0 left-0 flex items-center justify-center h-screen w-full text-white`}
       >
-        <div className="w-2/6 bg-gray-400 p-4 rounded  ">
-          <div className="flex justify-end ">
+        <div className="w-full max-w-md bg-gray-400 p-4 rounded-lg mx-4 sm:mx-auto">
+          {/* Close Button */}
+          <div className="flex justify-end">
             <button
               className="text-2xl"
               onClick={() => {
@@ -86,7 +90,8 @@ function InputData({ close, setClose, updatedData, setUpdatedData }) {
               <RxCross2 />
             </button>
           </div>
-          {/* title field */}
+
+          {/* Title Input */}
           <input
             type="text"
             placeholder="Title"
@@ -95,27 +100,29 @@ function InputData({ close, setClose, updatedData, setUpdatedData }) {
             onChange={handleChange}
             className="px-3 py-2 rounded w-full bg-gray-700 my-3"
           />
-          {/* desc field */}
+
+          {/* Description Input */}
           <textarea
             name="desc"
-            id=""
             cols="30"
-            rows="10"
+            rows="5"
             placeholder="Description..."
             value={newTask.desc}
             onChange={handleChange}
-            className="px-3 py-2 rounded w-full bg-gray-700"
+            className="px-3 py-2 rounded w-full bg-gray-700 mb-4"
           ></textarea>
+
+          {/* Submit or Update Button */}
           {updatedData.id === "" ? (
             <button
-              className="px-3 py-2 bg-blue-400  text-black text-xl font-semibold rounded"
+              className="w-full px-3 py-2 bg-blue-400 text-black text-xl font-semibold rounded"
               onClick={handleSubmit}
             >
               Submit
             </button>
           ) : (
             <button
-              className="px-3 py-2 bg-blue-400  text-black text-xl font-semibold rounded"
+              className="w-full px-3 py-2 bg-blue-400 text-black text-xl font-semibold rounded"
               onClick={updateTask}
             >
               Update
@@ -128,3 +135,5 @@ function InputData({ close, setClose, updatedData, setUpdatedData }) {
 }
 
 export default InputData;
+
+
